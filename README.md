@@ -1,90 +1,59 @@
-# AlgaeTower
-AlgaeTower 是一台垂直長筒形閉環微藻系統，專為離網與極端環境設計。可自動培養微藻、收穫濃縮、乳酸發酵，並產出可塑型營養泥，同時回收 CO₂ 與水分。 系統採用三隔間培養（50% 產油、25% 高蛋白、25% 高澱粉），以太陽能為主能源，Stirling 引擎輔助回收油脂發電。第三層乳酸發酵提升口感與吸收率，最終擠出可食用營養泥。 室內無光時每日耗電約 5.5–6.8 kWh，有陽光輔助時自給率大幅提升。每月僅需補充微量元素與純水。 AlgaeTower 強調簡單可靠、模組化維護，適合離網生活，也可作為太空生命支持原型。
 # AlgaeTower v1.1 Final
-
 **Open Source Closed-Loop Microalgae Nutrition Paste Machine**  
-**開放源碼閉環微藻營養泥製造機（極端環境適用版）**
+**開放源碼閉環微藻營養泥製造機（地面型號）**
 
-## Overview / 專案簡介
+## 專案簡介 / Overview
 
-AlgaeTower is a vertical cylindrical, fully automatic, closed-loop microalgae system designed for off-grid homes and extreme enclosed environments (space stations, Mars bases).  
-It produces edible lactic acid fermented nutrition paste while recycling CO₂, water, and partial waste.
+AlgaeTower 是一台垂直長筒形、全自動閉環微藻系統，專為離網家庭、偏遠地區與極端封閉環境設計。系統可穩定產出適合人類食用的乳酸發酵營養泥，同時進行氧氣生產與 CO₂ 回收。
 
-本專案是一台垂直長筒形全自動閉環微藻系統，適合離網家庭與極端封閉環境使用，可產出可食用的乳酸發酵營養泥，同時回收 CO₂、水分與部分廢物。
+本版提供兩種配置，讓使用者可依據預算、閉環需求與維護能力選擇。
 
-誠實面對熱力學現實：完全自給電非常困難，因此以自然陽光 + 太陽能板為主要能源，Stirling 引擎作為廢熱與廢藻泥回收輔助裝置。這是經過多次優化後，最務實、可複製的版本。
+**Version A（空氣過濾版）**：成本較低、產量較高，適合一般離網使用者。  
+**Version B（發電機版）**：閉環程度較高、安全性較好，適合追求極致閉環或極端環境的使用者。
 
-## Key Features / 主要特點
+## 兩個版本比較 / Version Comparison
 
-- Modular 4-layer design / 模組化 4 層設計，可獨立拆裝維護
-- UV-C sterilization feeding boxes / UV 殺菌投料小箱（第1層與第3層）
-- Adjustable compartments in Layer 1 (50% high-lipid, 25% high-protein, 25% high-starch) / 第一層可調整隔間培養（50% 產油藻、25% 高蛋白、25% 高澱粉）
-- Dedicated oil extraction channel in Layer 2 (65–75% oil for power generation) / 第二層專用榨油通道（65–75% 油脂用於發電）
-- Lactic acid fermentation in Layer 3 for better taste and digestibility / 第三層乳酸發酵，提升口感與吸收率
-- Mode switching (food priority / power assist) / 模式切換（食物優先 / 發電輔助）
-- Hybrid energy: solar primary + Stirling auxiliary / 太陽能為主 + Stirling 輔助回收
+| 項目                  | Version A（空氣過濾版）                  | Version B（發電機版）                     |
+|-----------------------|-----------------------------------------|------------------------------------------|
+| 主要 CO₂ 來源        | 室外空氣 + HEPA H13 + UV-C 消毒         | Stirling 引擎燃燒油脂產生 CO₂            |
+| 估計總成本            | NT$ 750,000 – 1,050,000                 | NT$ 950,000 – 1,350,000                  |
+| 日產量                | 850–1,100 g 濕營養泥                    | 700–950 g 濕營養泥                       |
+| 閉環程度              | 中等                                    | 較高                                     |
+| 污染風險              | 中等                                    | 較低                                     |
+| 每日耗電              | 5.2–6.5 kWh                             | 5.5–6.8 kWh                              |
+| 每日耗水              | 1.0–1.5 公升                            | 0.9–1.4 公升                             |
+| 空機重量              | 約 420–480 kg                           | 約 520–580 kg                            |
 
-## Specifications / 規格
+## 工作原理 / Working Principle
 
-- Diameter: 130–140 cm / 直徑：130–140 cm
-- Height: 180–200 cm / 總高：180–200 cm
-- Culture volume (Layer 1): 650–800 L / 培養液量（第1層）：650–800 L
-- Daily output: 800–1000 g wet fermented nutrition paste (25–35% solids) / 日產量：800–1000 g 濕發酵營養泥（固形物 25–35%）
-- Total weight: \~1.1–1.3 tons / 總重量：約 1.1–1.3 噸
+系統分為四層，模擬自然生態循環：
 
-## Energy Reality / 能源現實說明
+1. **第1層（培養生長室）**：微藻在三個隔間中生長（50% 產油、25% 高蛋白、25% 高碳水）。LED 燈管提供光照，Venturi 微氣泡系統同時供應 CO₂ 並進行混合。微藻透過光合作用吸收 CO₂ 並釋放 O₂。
 
-In indoor conditions without natural light, daily power consumption is approximately 5.5–6.8 kWh.  
-Stirling recovery provides about 0.45–0.65 kWh.  
-It is recommended to use solar panels to significantly reduce external charging needs.
+2. **第2層（收穫與濃縮室）**：成熟微藻被抽入此層，經螺旋桿與絲網進行固液分離。產油隔間的油脂可被榨出（Version B 用於 Stirling 發電，Version A 可儲存或出售）。剩餘藻泥濃縮至 25–32% 固形物。
 
-在室內無自然光的情況下，每日耗電約 5.5–6.8 kWh。Stirling 回收電量約 0.45–0.65 kWh。建議搭配太陽能板使用，以大幅降低外部充電需求。
+3. **第3層（乳酸發酵室）**：濃縮後的藻泥進入此層，接種 Lactiplantibacillus plantarum 進行乳酸發酵。發酵過程可提升營養吸收率、改善口感，並增加保存性。最後由擠出頭產出可塑型營養泥。
 
-有自然陽光或太陽能輔助時，LED 耗電可下降 40–60%，總耗電降至 2.5–4.0 kWh/天，自給率明顯提升。
+4. **第4層（能源與氣體管理室）**：Version B 使用 Stirling 引擎燃燒油脂產生電能與 CO₂；Version A 則主要依靠太陽能板與電池。兩個版本皆有氣體緩衝與安全洩壓機制。
 
-## 4-Layer Structure / 4層結構
+整個系統形成「光合作用 → 收穫 → 發酵 → 能源回收」的閉環流程，最大限度減少外部輸入。
 
-**Layer 1: Cultivation Growth Chamber / 第1層：培養生長室**  
-Divided into 3 compartments with adjustable ratios (50% high-lipid, 25% high-protein, 25% high-starch).  
-Lighting: One vertical long LED tube per compartment + high-reflectivity mirror walls (20–50 Hz PWM + dynamic duty cycle).  
-Venturi microbubble generator (tangential injection) + air-lift circulation.  
-UV-C sterilization feeding box at top.  
-Air inlet with HEPA filter.  
-Inner walls with food-grade anti-fouling coating.
+## 共同規格 / Common Specifications
+- 直徑：130–140 cm  
+- 總高：180–200 cm  
+- 培養液量：650–800 L  
+- 控制系統：Arduino + 動態 PWM LED 控制  
+- 電池：外接式大容量電池模組  
+- License：CC BY-SA 4.0 (hardware) + GPLv3 (software)
 
-**Layer 2: Harvesting & Mild Concentration Chamber / 第2層：收穫與溫和濃縮室**  
-Central UV lamp (35–38°C).  
-Conical spiral screw + 0.1 mm wedge wire mesh.  
-Automatic backwash nozzles + low-power ultrasound.  
-Dedicated oil extraction channel for lipid compartment (65–75% oil for power generation).  
-Water ring pump for water return and vacuum concentration.  
-Target solids: 25–32%.
+## 注意事項 / Important Notes
+- Version A 需定期更換 HEPA 濾網，否則污染風險會增加。
+- Version B 的 Stirling 引擎需定期清理燃燒室與催化器。
+- 兩個版本皆需每月補充微量元素與純淨水。
+- 室內無自然光時仍需外部充電，建議準備充足備用電池。
+- 所有操作請遵守食品安全規範，營養泥使用前建議檢測。
 
-**Layer 3: Lactic Acid Fermentation & Shaping Chamber / 第3層：乳酸發酵與塑型室**  
-Low-speed stirrer + temperature control (30–35°C).  
-pH sensor + short anaerobic mode.  
-Lactiplantibacillus plantarum fermentation (auto-seeding + backup inoculum port).  
-UV-C sterilization feeding box.  
-Spiral extrusion head with interchangeable molds for moldable fermented nutrition paste.
-
-**Layer 4: Auxiliary Energy Recovery Chamber / 第4層：輔助能源回收室**  
-Stirling external combustion engine (auxiliary power from excess biomass/oil).  
-Large capacity battery.  
-External power interface (mainly for cold start and backup).  
-Staged heat recovery + exhaust condenser + UV gas disinfection.
-
-## Base & Structure / 底座與結構
-- Three-point support base with counterweight and shock absorption system.  
-- Tower body with circumferential reinforcing rings.
-
-## Control System / 控制系統
-- Arduino-based controller with essential sensors (pH, temperature, pressure, liquid level).  
-- Main functions: scheduled harvesting, backwash, gas relief, dynamic LED adjustment.  
-- When Layer 1 starts harvesting, automatically dim Layer 1 LEDs and put Layer 2 & 3 into low-power standby mode.
-
-## License / 授權
-CC BY-SA 4.0 (hardware) + GPLv3 (software)
-
-## Contributing / 貢獻
-Welcome to fork, improve, and contribute!  
-歡迎 Fork、改進與貢獻！
+詳細零件清單、組裝步驟與維護方法請參閱以下檔案：
+- [BOM.md](BOM.md)
+- [assembly-guide.md](assembly-guide.md)
+- [maintenance-guide.md](maintenance-guide.md)
