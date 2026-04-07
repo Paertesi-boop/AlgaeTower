@@ -1,20 +1,19 @@
-# Maintenance Guide / 維護指南
+# Maintenance Guide / 維修保養方法
 
-## Monthly Maintenance / 每月維護
-- Supplement trace elements and pure water  
-- Check filter mesh and backwash nozzles  
-- Clean UV lamp surfaces  
+## 每月例行維護（兩個版本共通）
+- 補充微量元素與純淨水
+- 清潔 UV 燈管
+- 檢查氣體感測器
 
-## Every 2–3 Months / 每 2–3 個月
-- Perform full CIP cleaning (acid + alkali + enzyme)  
-- Inspect spiral screw, O-rings, and water ring pump seals  
-- Calibrate pH and gas sensors  
+## Version A 特殊維護
+- 每 1–3 個月檢查並更換 HEPA 濾網
+- 每季進行一次完整 CIP 清潔
 
-## Annually / 每年
-- Replace wearable seals and filter mesh  
-- Check Stirling engine and battery health  
-- Update controller firmware  
+## Version B 特殊維護
+- 每 2–3 個月清理 Stirling 燃燒室與催化器
+- 每年檢查 Stirling 密封件與活塞
 
-## Emergency Maintenance / 緊急維護
-- If filter is severely clogged, perform manual backwash or disassembly cleaning  
-- If pH or gas concentration is abnormal, immediately enter emergency harvest mode
+## 注意事項
+- 發現污染跡象立即進入緊急收穫模式
+- 長期使用前建議先進行小規模測試
+- 所有操作均需穿戴防護裝備
